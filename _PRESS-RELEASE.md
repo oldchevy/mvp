@@ -17,28 +17,35 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  Improve Your Understanding of Promises by Making Music
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  For engineers who want to solidify their Promise writing skills and play with a cool sandbox.
 
 ## Summary ##
+  This tool let's you write Promises that are wrapped around short audio clips. When you execute your sandbox code, you will be able to both hear and see exactly how your asynchronous code is behaving! This is a cool way to conceptualize writing asynchronous code, and 
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
 ## Problem ##
+  Promises can save you from awful looking and difficult to reason about callback centered asynchronous code. But they take some getting used to and tutorials online are not always the most clear about implications for different ways to implement Promises.
   > Describe the problem your product solves.
 
 ## Solution ##
+  Often, giving a more tangible example can greatly improve your understanding of an abstract concept. This tool offers an intuitive way to reason about and conceptualize what promises are doing under the hood. When you run your code snippet you will be able to both see and hear how your Promises are resolving in real time.
   > Describe how your product elegantly solves the problem.
 
 ## Quote from You ##
+  "This sandbox gives you an open-ended way to experiment with writing Promises! I hope you enjoy using it."
   > A quote from a spokesperson in your company.
 
 ## How to Get Started ##
+  Click on one of the examples to see the code snippet in the code entry view, and execute the code to see and hear it! Easy as that. Once you feel confident in the examples, write your own using the audio clips listed above the code box.
   > Describe how easy it is to get started.
 
 ## Customer Quote ##
+  "The sandbox is really easy to use and I made some sick beats."
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
 
 ## Closing and Call to Action ##
+  To get started, just follow the instructions at the top of the page. If you are wondering what Promises are, now is a great time to learn! Head to this MDN link to learn just what Promises are all about.
   > Wrap it up and give pointers where the reader should go next.
