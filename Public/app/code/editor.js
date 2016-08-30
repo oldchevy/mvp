@@ -9,7 +9,8 @@ angular.module('pSandbox.code', [])
   //Initialize the code editor here
   $scope.snippets = {
     vals: [],
-    selected: undefined
+    selected: undefined,
+    save: false
   };
   var codeMirror = $scope.myCodeMirror;
 
@@ -22,7 +23,7 @@ angular.module('pSandbox.code', [])
 
 
   $scope.getSnippets = function() {
-    //call the service for executing the promise code
+    //call the service for fetching the DB snippets
     var results = Snippets.getAll().then(function(results) {
       console.log('This refresh button is working!\n', results);
       $scope.snippets.vals = results;
@@ -32,6 +33,29 @@ angular.module('pSandbox.code', [])
 
   $scope.updateEditor = function(text) {
     $scope.myCodeMirror.setValue(text);
+  };
+
+
+
+  $scope.save = function() {
+    if ($scope.form && $scope.form.username && $scope.form.title) {
+      $scope.snippets.save = false;
+      console.log('Save button is up and running:  ', $scope.form );
+
+      var newEntry = { 
+        username: $scope.form.username,
+        title: $scope.form.title,
+        snippet: $scope.myCodeMirror.getValue()
+      };
+
+      Snippets.addOne(JSON.stringify(newEntry)).then(function(res) {
+        console.log(res);
+      });
+
+    } else {
+      $scope.snippets.save = true;
+    }
+
   };
 
 

@@ -21,11 +21,6 @@
   <ul id='snips' class="collection with-header blue-grey-text text-darken-3">
     <li class="collection-header"><h5>Community Snippets</h4><a ng-click='getSnippets()'>Refresh</a></li>
     <a ng-repeat='snippet in snippets.vals' href="#/code" class="collection-item" ng-click='updateEditor(snippet.snippet); snippets.selected = $index' ng-class='{"active": snippets.selected === $index}'>{{ snippet.title }} - {{ snippet.username }}, {{ snippet.timestamps.slice(0,10)}}</a>
-    <a href="#!" class="collection-item">Drums Example 1</a>
-    <a href="#!" class="collection-item active">Bass Example 2</a>
-    <a href="#!" class="collection-item">Rhythm Guitar</a>
-    <a href="#!" class="collection-item">Rhythm Guitar</a>
-    <a href="#!" class="collection-item">Awesome Guitar Solo</a>
   </ul>
 
 </div>
@@ -42,11 +37,11 @@
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="user_name" type="text" class="validate">
+                  <input id="user_name" type="text" class="validate" ng-model='form.username'>
                   <label for="user_name">Username</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="title" type="text" class="validate">
+                  <input id="title" type="text" class="validate" ng-model='form.title'>
                   <label for="title">Title</label>
                 </div>
               </div>
@@ -55,6 +50,7 @@
 
         <div class="card-action">
           <a ng-click="save()">Save It</a>
+          <span ng-show="snippets.save">Please Enter a Username and Title</span>
         </div>
       </div>
     </div>

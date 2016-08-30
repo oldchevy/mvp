@@ -5,7 +5,7 @@ angular.module('pSandbox.services', [])
     return $http({
       method: 'POST',
       url: '/data/snippets',
-      data: data // {url: http://blah blah blah} JSON FORMATTED
+      data: data // {username: snippet: title:} JSON FORMATTED
     });
   };
 
