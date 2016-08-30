@@ -1,4 +1,5 @@
 angular.module('pSandbox', [
+  'pSandbox.utils',
   'pSandbox.services',
   'pSandbox.code',
   'pSandbox.save',

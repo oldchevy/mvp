@@ -6,7 +6,7 @@ angular.module('pSandbox.code', [])
 
 .controller('CodeController', function($scope, $window, $location, Code, Snippets) {
 
-  //Initialize the code editor here
+  //Initialize the scope variables here
   $scope.snippets = {
     vals: [],
     selected: undefined,
@@ -14,11 +14,12 @@ angular.module('pSandbox.code', [])
   };
   var codeMirror = $scope.myCodeMirror;
 
+  //Call the service for executing the promise code
   $scope.submit = function() {
-    //call the service for executing the promise code
 
     console.log('This submit button is working!\n', $scope.myCodeMirror.getValue() );
-    //How are we going to grab the code?
+    Code.runCode($scope.myCodeMirror.getValue());
+    
   }; 
 
 
@@ -49,7 +50,8 @@ angular.module('pSandbox.code', [])
       };
 
       Snippets.addOne(JSON.stringify(newEntry)).then(function(res) {
-        console.log(res);
+        console.log('Respose OK: ', res);
+        //Do something interesting here like add a check symbol to show save success
       });
 
     } else {
