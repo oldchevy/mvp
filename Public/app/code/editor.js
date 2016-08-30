@@ -8,9 +8,10 @@ angular.module('pSandbox.code', [])
 
   //Initialize the code editor here
   $scope.snippets = {
-    vals: []
+    vals: [],
+    selected: undefined
   };
-
+  var codeMirror = $scope.myCodeMirror;
 
   $scope.submit = function() {
     //call the service for executing the promise code
@@ -29,11 +30,11 @@ angular.module('pSandbox.code', [])
 
   }; 
 
-  $scope.updateEditor = function() {
-
+  $scope.updateEditor = function(text) {
+    $scope.myCodeMirror.setValue(text);
   };
 
 
   $scope.getSnippets();
-  
+
 });

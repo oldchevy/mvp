@@ -8,7 +8,7 @@ angular.module('pSandbox.save', [])
   $scope.getSnippets = function() {
     //call the service for executing the promise code
     var results = Snippets.getAll().then(function(results) {
-      console.log('This refresh button is working!\n', results);
+      //console.log('This refresh button is working!\n', results);
     });
 
   }; 
