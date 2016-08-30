@@ -6,6 +6,7 @@ var snippetController = require('./lib/snippetController');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var helpers = require('./lib/helpers');
+var emojis = require('emoji-favicon');
 
 var port = 5000;
 
@@ -14,6 +15,7 @@ app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(emojis('radio'));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/data/snippets', snippetController.getAll);
