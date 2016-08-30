@@ -20,7 +20,7 @@
 <!-- This will be an angular directive to populate  -->
   <ul id='snips' class="collection with-header blue-grey-text text-darken-3">
     <li class="collection-header"><h5>Community Snippets</h4><a ng-click='getSnippets()'>Refresh</a></li>
-    <a ng-repeat='snippet in snippets.vals' href="#/code" class="collection-item" ng-click='updateEditor(snippet.snippet)' ng-click='snippets.selected = $index' ng-class='{"active": snippets.selected === $index}'>{{ snippet.title }} - {{ snippet.username }}, {{ snippet.timestamps.slice(0,10)}}</a>
+    <a ng-repeat='snippet in snippets.vals' href="#/code" class="collection-item" ng-click='updateEditor(snippet.snippet); snippets.selected = $index' ng-class='{"active": snippets.selected === $index}'>{{ snippet.title }} - {{ snippet.username }}, {{ snippet.timestamps.slice(0,10)}}</a>
     <a href="#!" class="collection-item">Drums Example 1</a>
     <a href="#!" class="collection-item active">Bass Example 2</a>
     <a href="#!" class="collection-item">Rhythm Guitar</a>
