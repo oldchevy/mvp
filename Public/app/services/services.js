@@ -37,21 +37,20 @@ angular.module('pSandbox.services', [])
 
     var finishedLoading = function(bufferList) {
 
-      console.log('The buffer loader worked');
-      eval(codeString);
-      
-      var source1 = audioContext.createBufferSource();
-      var source2 = audioContext.createBufferSource();
-      source1.buffer = bufferList[0];
-      source2.buffer = bufferList[1];
-
-      source1.connect(audioContext.destination);
-      source2.connect(audioContext.destination);
-      source1.onended = function() {
-        console.log('Event handler worked');
-        source2.start();
+      var drumming = function() {
+        var source = audioContext.createBufferSource();
+        source.buffer = bufferList[0];
+        return Music.pMaker(source, audioContext);
       };
-      source1.start();
+
+      var strumming = function() {
+        var source = audioContext.createBufferSource();
+        source.buffer = bufferList[1];
+        return Music.pMaker(source, audioContext);
+      };
+
+      eval(codeString);
+
     };
 
     var bufferLoader = new Music.BufferLoader(audioContext, clipsList, finishedLoading);

@@ -12,21 +12,19 @@ angular.module('pSandbox.code', [])
     selected: undefined,
     save: false
   };
-  var codeMirror = $scope.myCodeMirror;
 
   //Call the service for executing the promise code
   $scope.submit = function() {
 
-    console.log('This submit button is working!\n', $scope.myCodeMirror.getValue() );
+    console.log('Running your code!\n', $scope.myCodeMirror.getValue() );
     Code.runCode($scope.myCodeMirror.getValue());
     
   }; 
 
 
   $scope.getSnippets = function() {
-    //call the service for fetching the DB snippets
     var results = Snippets.getAll().then(function(results) {
-      console.log('This refresh button is working!\n', results);
+      console.log('Grabbing snippets was a success\n');
       $scope.snippets.vals = results;
     });
 
@@ -41,7 +39,6 @@ angular.module('pSandbox.code', [])
   $scope.save = function() {
     if ($scope.form && $scope.form.username && $scope.form.title) {
       $scope.snippets.save = false;
-      console.log('Save button is up and running:  ', $scope.form );
 
       var newEntry = { 
         username: $scope.form.username,

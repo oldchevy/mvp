@@ -54,11 +54,19 @@ angular.module('pSandbox.utils', [])
     }
   };
 
-
+  var pMaker = function(snipSource, audioContext) {
+    return new Promise(function(resolve, reject) {
+      snipSource.connect(audioContext.destination);
+      snipSource.start();
+      snipSource.onended = function() {
+        resolve();
+      };
+    });
+  };
 
   return {
     BufferLoader: BufferLoader,
-
+    pMaker: pMaker
   };
 
 });

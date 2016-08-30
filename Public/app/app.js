@@ -1,5 +1,5 @@
 angular.module('pSandbox', [
-  'pSandbox.utils',
+  'pSandbox.utils', 
   'pSandbox.services',
   'pSandbox.code',
   'pSandbox.save',
@@ -24,10 +24,13 @@ angular.module('pSandbox', [
   //This will be used if at some point we decide to create users and authentication
   // $httpProvider.interceptors.push('AttachTokens');
 })
+
+//This custom directive is used to initalize the code sandbox every time the element
+//containing the append directive is rendered.
 .directive('append', function() {
   return {
     link: function($scope, element, attrs) {
-      console.log(element);
+
       var initial = ['///////////////////////          SANDBOX         ////////////////////////////////',
                      '// Enter your Promise snippet here. No need to wrap it in a function or anything,',
                      '// whatever you submit will be executed! Check out the Getting Started tab for',
@@ -41,5 +44,6 @@ angular.module('pSandbox', [
         tabSize: 2
       });
     }
+    
   };
 });
