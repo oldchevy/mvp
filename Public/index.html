@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='promises'>
+<html ng-app='pSandbox'>
   <head>
     <meta charset="utf-8" />
     <title>Promises Mashup</title>
@@ -36,9 +36,9 @@
       <div class="nav-wrapper light-blue darken-1">
         <a href="#" class="brand-logo">Promises in Real Time</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#intro">Getting Started</a></li>
-          <li><a href="#sandbox">Play</a></li>
-          <li><a href="#save">Save</a></li>
+          <li><a href="#/about">Getting Started</a></li>
+          <li><a href="#/code">Play</a></li>
+          <li><a href="#/save">Save</a></li>
         </ul>
       </div>
     </nav>
@@ -51,21 +51,7 @@
       <!-- Main content with the rendered angular view -->
       <!-- There will be three views, getting started, Play, and Save -->
       <div class="main col s8 m8 l8" ng-view>
-
-        <div class="row">
-          <div class="col s12 m12 l12">
-            <div class="card white">
-              <div class="card-content blue-grey-text darken-3">
-                <!-- <span class="card-title">Sandbox</span>
-                <p>Enter your Promise snippet here. No need to wrap it in a function or anything, whatever you submit will be executed! Check out the Getting Started tab for usage basics, and take a look at the examples on the right. </p> -->
-              </div>
-              <div class="card-action">
-                <a href="#">Run It!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      
       </div>
 
 
@@ -119,7 +105,7 @@
   </body>
 
 
-  <script type="text/javascript">
+<!--   <script type="text/javascript">
     var elem = $('.card-content').get();
     var initial = ['///////////////////////          SANDBOX         ////////////////////////////////',
                    '// Enter your Promise snippet here. No need to wrap it in a function or anything,',
@@ -133,13 +119,13 @@
       lineNumbers: true,
       tabSize: 2
     });
-  </script>
+  </script> -->
 
   <!-- Include code in reverse cascade order, so the lowest level will exist before code is declared that depends on it -->
 <!--   <script src="app/auth/auth.js"></script>
-  <script src="app/links/links.js"></script>
-  <script src="app/shorten/shorten.js"></script>
-  <script src="app/services/services.js"></script> -->
+  <script src="app/links/links.js"></script> -->
+  <script src="app/code/editor.js"></script>
+  <script src="app/services/services.js"></script>
   <script src="app/app.js"></script>
 
 
