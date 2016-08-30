@@ -10,6 +10,9 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 
+    <!-- CSS styling for code editor -->
+    <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
@@ -23,6 +26,10 @@
     <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
+
+
 
     <!-- Nav Bar -->
     <nav>
@@ -38,10 +45,32 @@
           
 
     <!-- Page Layout here -->
-    <div class="row">
+    <div class="row blue-grey lighten-5">
+
+
+      <!-- Main content with the rendered angular view -->
+      <!-- There will be three views, getting started, Play, and Save -->
+      <div class="main col s8 m8 l8" ng-view>
+
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="card white">
+              <div class="card-content blue-grey-text darken-3">
+                <!-- <span class="card-title">Sandbox</span>
+                <p>Enter your Promise snippet here. No need to wrap it in a function or anything, whatever you submit will be executed! Check out the Getting Started tab for usage basics, and take a look at the examples on the right. </p> -->
+              </div>
+              <div class="card-action">
+                <a href="#">Run It!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
 
       <!-- Side Panel with examples and user generated examples -->
-      <div class="col s3 m3 l3">
+      <div class="col s4 m4 l4">
 
       <!-- This will be an angular directive to populate  -->
         <ul id='snips' class="collection with-header blue-grey-text text-darken-3">
@@ -55,36 +84,10 @@
 
       </div>
 
-      <!-- Main content with the rendered angular view -->
-      <!-- There will be three views, getting started, Play, and Save -->
-      <div class="col s9 m9 l9" ng-view>
-
-        <div class="row">
-          <div class="col s12 m12 l12">
-            <div class="card blue-grey lighten-5">
-              <div class="card-content blue-grey-text darken-3">
-                <span class="card-title">Sandbox</span>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Run It!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
 
     </div>
 
 
-    <!-- Include code in reverse cascade order, so the lowest level will exist before code is declared that depends on it -->
-    <script src="app/auth/auth.js"></script>
-    <script src="app/links/links.js"></script>
-    <script src="app/shorten/shorten.js"></script>
-    <script src="app/services/services.js"></script>
-    <script src="app/app.js"></script>
 
 
     <!-- Footer, customize this stuff later on -->
@@ -100,8 +103,8 @@
             <ul>
               <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
               <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li> -->
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
             </ul>
           </div>
         </div>
@@ -114,4 +117,30 @@
       </div>
     </footer>
   </body>
+
+
+  <script type="text/javascript">
+    var elem = $('.card-content').get();
+    var initial = ['///////////////////////          SANDBOX         ////////////////////////////////',
+                   '// Enter your Promise snippet here. No need to wrap it in a function or anything,',
+                   '// whatever you submit will be executed! Check out the Getting Started tab for',
+                   '// usage basics, and take a look at the examples on the right.'].join('\n');
+
+    console.log(elem);
+    var myCodeMirror = CodeMirror(elem[0], {
+      value: initial + '\n\n\n\n\n\n',
+      mode: 'javascript',
+      lineNumbers: true,
+      tabSize: 2
+    });
+  </script>
+
+  <!-- Include code in reverse cascade order, so the lowest level will exist before code is declared that depends on it -->
+<!--   <script src="app/auth/auth.js"></script>
+  <script src="app/links/links.js"></script>
+  <script src="app/shorten/shorten.js"></script>
+  <script src="app/services/services.js"></script> -->
+  <script src="app/app.js"></script>
+
+
 </html>
