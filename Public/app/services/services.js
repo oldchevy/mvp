@@ -47,8 +47,11 @@ angular.module('pSandbox.services', [])
 
       source1.connect(audioContext.destination);
       source2.connect(audioContext.destination);
-      source1.start(0);
-      source2.start(0);
+      source1.onended = function() {
+        console.log('Event handler worked');
+        source2.start();
+      };
+      source1.start();
     };
 
     var bufferLoader = new Music.BufferLoader(audioContext, clipsList, finishedLoading);
