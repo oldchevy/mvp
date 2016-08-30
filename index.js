@@ -1,4 +1,5 @@
 var express = require('express');
+//I might want this later
 //var partials = require('express-partials');
 var bodyParser = require('body-parser');
 var snippetController = require('./lib/snippetController');

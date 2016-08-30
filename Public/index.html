@@ -29,6 +29,12 @@
     <script src="bower_components/codemirror/lib/codemirror.js"></script>
     <script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
 
+    <!-- Include code in reverse cascade order, so the lowest level will exist before code is declared that depends on it -->
+    <!-- <script src="app/auth/auth.js"></script> -->
+    <script src="app/save/save.js"></script>
+    <script src="app/code/editor.js"></script>
+    <script src="app/services/services.js"></script>
+    <script src="app/app.js"></script>
 
 
     <!-- Nav Bar -->
@@ -51,16 +57,17 @@
       <!-- Main content with the rendered angular view -->
       <!-- There will be three views, getting started, Play, and Save -->
       <div class="main col s8 m8 l8" ng-view>
-      
+
       </div>
 
 
       <!-- Side Panel with examples and user generated examples -->
-      <div class="col s4 m4 l4">
+      <div class="col s4 m4 l4" ng-controller="CodeController">
 
       <!-- This will be an angular directive to populate  -->
         <ul id='snips' class="collection with-header blue-grey-text text-darken-3">
-          <li class="collection-header"><h5>Community Snippets</h4></li>
+          <li class="collection-header"><h5>Community Snippets</h4><a ng-click='getSnippets()'>Refresh</a></li>
+          <a ng-repeat='snippet in snippets.vals' href="#!" class="collection-item">{{ snippet.title }} - {{ snippet.username }}, {{ snippet.timestamps.slice(0,10)}}</a>
           <a href="#!" class="collection-item">Drums Example 1</a>
           <a href="#!" class="collection-item active">Bass Example 2</a>
           <a href="#!" class="collection-item">Rhythm Guitar</a>
@@ -72,7 +79,6 @@
 
 
     </div>
-
 
 
 
@@ -103,30 +109,6 @@
       </div>
     </footer>
   </body>
-
-
-<!--   <script type="text/javascript">
-    var elem = $('.card-content').get();
-    var initial = ['///////////////////////          SANDBOX         ////////////////////////////////',
-                   '// Enter your Promise snippet here. No need to wrap it in a function or anything,',
-                   '// whatever you submit will be executed! Check out the Getting Started tab for',
-                   '// usage basics, and take a look at the examples on the right.'].join('\n');
-
-    console.log(elem);
-    var myCodeMirror = CodeMirror(elem[0], {
-      value: initial + '\n\n\n\n\n\n',
-      mode: 'javascript',
-      lineNumbers: true,
-      tabSize: 2
-    });
-  </script> -->
-
-  <!-- Include code in reverse cascade order, so the lowest level will exist before code is declared that depends on it -->
-<!--   <script src="app/auth/auth.js"></script>
-  <script src="app/links/links.js"></script> -->
-  <script src="app/code/editor.js"></script>
-  <script src="app/services/services.js"></script>
-  <script src="app/app.js"></script>
 
 
 </html>
