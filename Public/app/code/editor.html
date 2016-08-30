@@ -14,33 +14,6 @@
   </div>
 </div>
 
-<div class="main col s8 m8 l8" id="save">
-  <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="card white">
-        <div class="card-content blue-grey-text darken-3">
-          <!-- This is where the code editor goes (as defined in the append custom directive) -->
-        <div class="card-action">
-          <a ng-click="submit()">Save It</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="main col s8 m8 l8" id="about">
-  <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="card white">
-        <div class="card-content blue-grey-text darken-3">
-        <span class="card-title">Getting Started</span>
-        <p>Write the basics of how to use the editor here. Include the variable names of all the audio clips you've included.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!-- Side Panel with examples and user generated examples -->
 <div class="col s4 m4 l4">
 
@@ -56,3 +29,48 @@
   </ul>
 
 </div>
+
+<div class="main col s8 m8 l8" id="save">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card white">
+        <div class="card-content blue-grey-text darken-3">
+
+          <span class="card-title">Save Your Snippet</span>
+
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="user_name" type="text" class="validate">
+                  <label for="user_name">Username</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="title" type="text" class="validate">
+                  <label for="title">Title</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        <div class="card-action">
+          <a ng-click="save()">Save It</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="main col s12 m12 l12" id="about">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card white">
+        <div class="card-content blue-grey-text darken-3">
+        <span class="card-title">Getting Started</span>
+        <p>Write the basics of how to use the editor here. Include the variable names of all the audio clips you've included.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
