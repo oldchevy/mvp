@@ -12,33 +12,7 @@
       </div>
     </div>
   </div>
-</div>
 
-<!-- Side Panel with examples and user generated examples -->
-<div class="col s4 m4 l4">
-  <!-- This will be an angular directive to populate  -->
-  <ul id='snips' class="collection with-header blue-grey-text text-darken-3">
-    <li class="collection-header"><h5>Community Snippets</h4><a ng-click='getSnippets()'>Refresh</a></li>
-    <a ng-repeat='snippet in snippets.vals' href="#/code" class="collection-item" ng-click='updateEditor(snippet.snippet); snippets.selected = $index' ng-class='{"active": snippets.selected === $index}'>{{ snippet.title }} - {{ snippet.username }}, {{ snippet.timestamps.slice(0,10)}}</a>
-  </ul>
-</div>
-
-
-<div class="main col s4 m4 l4" id="about">
-  <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="card white">
-        <div class="card-content blue-grey-text darken-3">
-          <span class="card-title">Getting Started</span>
-          <p>Write the basics of how to use the editor here. Include the variable names of all the audio clips you've included.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="main col s8 m8 l8" id="save">
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="card white">
@@ -66,6 +40,41 @@
             <span ng-show="snippets.save">Please Enter a Username and Title</span>
           </div>
 
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Side Panel with examples and user generated examples -->
+<div class="col s4 m4 l4">
+  <div class="row">  
+    <ul id='snips' class="collection with-header blue-grey-text darken-3">
+      <li class="collection-header"><h5>Community Snippets</h5><a ng-click='getSnippets()'>Refresh</a></li>
+      <a ng-repeat='snippet in snippets.vals' href="#/code" class="collection-item" ng-click='updateEditor(snippet.snippet); snippets.selected = $index' ng-class='{"active": snippets.selected === $index}'>{{ snippet.title }} - {{ snippet.username }}, {{ snippet.timestamps.slice(0,10)}}</a>
+    </ul>
+  </div>
+  <!-- This will be an angular directive to populate  -->
+</div>
+
+
+<div class="main col s4 m4 l4" id="about">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card white">
+        <div class="card-content blue-grey-text darken-3">
+          <span class="card-title">Getting Started</span>
+          <p>
+            Each of the verbs listed below is a function that returns a Promise of it's associated sound. Each Promise resolves when the clip ends in order to facilitate chaining, however there is no need to stick to a rigid one-by-one chaining structure, events can be fired simultaneously or really in any order you want. Use this sandbox to understand and conceptualize how promises are resolved, and get creative! Look at the examples for some inpiration. And check out this <a href="https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html">great article</a> to read up on what's going on here.
+          </p>
+          <ul>
+            <li><h5>Audio Clips:</h5></li>
+            <li>drumming  -- 8 bars</li>
+            <li>strumming -- 4 bars</li>
+            <li>walking   -- 8 bars</li>
+            <li>soloing   -- 4 bars</li>
+          </ul>
         </div>
       </div>
     </div>
